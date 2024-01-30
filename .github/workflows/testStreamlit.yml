@@ -1,0 +1,33 @@
+name: ci-cd-streamlit
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  package-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: pip install streamlit
+
+      - name: Package code
+        run: zip -r code.zip .
+
+      - name: Deploy code
+        env:
+          SERVER_IP: ${{ secrets.SERVER_IP }}
+          PORT: ${{ secrets.PORT }}
+        run: streamlit run --host=$SERVER_IP --port=$PORT code.zip
+
+      - name: Send notification
+        uses: actions/send-email@v1
+        with:
+          recipients: my-team@example.com
+          subject: Update deployed to remote server
+          body: "Update deployed to remote server. (${GITHUB_SHA})" 
+
