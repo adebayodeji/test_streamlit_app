@@ -27,7 +27,7 @@ jobs:
       - name: Send notification
         uses: actions/send-email@v1
         with:
-          recipients: my-team@example.com
+          recipients: adebayodeji147@gmail.com
           subject: Update deployed to remote server
           body: "Update deployed to remote server. (${GITHUB_SHA})" 
 
