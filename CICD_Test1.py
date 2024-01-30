@@ -9,6 +9,7 @@ from langchain.schema import (SystemMessage, HumanMessage, AIMessage)
 
 st.set_page_config(page_title="Llama2 TGI Streaming ",layout="wide",)
 st.title ("Llama2 TGI Streaming Test 4")
+st.caption("This tests the Llama 2 Text Generation Interface")
 
 with stylable_container(
     key="top_content",
