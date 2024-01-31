@@ -19,8 +19,5 @@ jobs:
         run: zip -r code.zip .
 
       - name: Deploy code
-        env:
-          SERVER_IP: ${{ secrets.SERVER_IP }}
-          PORT: ${{ secrets.PORT }}
-        run: streamlit run --host=$SERVER_IP --port=$PORT code.zip 
+        run: streamlit run https://github.com/adebayodeji/test_streamlit_app/blob/master/CICD_Test1.py 
 
