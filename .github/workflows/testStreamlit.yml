@@ -19,5 +19,5 @@ jobs:
         run: zip -r code.zip .
 
       - name: Deploy code
-        run: streamlit run https://github.com/adebayodeji/test_streamlit_app/blob/master/CICD_Test1.py 
+        run: streamlit run https://github.com/adebayodeji/test_streamlit_app/blob/master/CICD_Test1.py --server.address localhost --server.port 8600 
 
