@@ -22,12 +22,5 @@ jobs:
         env:
           SERVER_IP: ${{ secrets.SERVER_IP }}
           PORT: ${{ secrets.PORT }}
-        run: streamlit run --host=$SERVER_IP --port=$PORT code.zip
-
-      - name: Send notification
-        uses: actions/send-email@v1
-        with:
-          recipients: adebayodeji147@gmail.com
-          subject: Update deployed to remote server
-          body: "Update deployed to remote server. (${GITHUB_SHA})" 
+        run: streamlit run --host=$SERVER_IP --port=$PORT code.zip 
 
