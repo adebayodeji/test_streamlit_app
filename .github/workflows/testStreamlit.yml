@@ -15,9 +15,13 @@ jobs:
       - name: Install dependencies
         run: pip install streamlit
 
-      - name: Package code
-        run: zip -r code.zip .
-
       - name: Deploy code
-        run: streamlit run https://github.com/adebayodeji/test_streamlit_app/blob/master/CICD_Test1.py --server.address https://localhost:8600 --server.port 8600 
+        env:
+          SERVER_IP: localhost
+          PORT: 8501
+        run: |
+          streamlit run --host=localhost --port=8501 https://github.com/adebayodeji/test_streamlit_app/blob/master/CICD_Test1.py
+      - name: start local server
+        run: |
+          python -m http.server 8501
 
