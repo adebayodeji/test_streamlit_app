@@ -19,10 +19,10 @@ jobs:
 
       - name: Deploy code
         env:
-          SERVER_IP: localhost
+          SERVER_IP: 10.21.222.62
           PORT: 8501
         run: |
-          streamlit run https://github.com/adebayodeji/test_streamlit_app/blob/master/CICD_Test1.py --host=localhhost --port=8501
+          streamlit run https://github.com/adebayodeji/test_streamlit_app/blob/master/CICD_Test1.py --server.address 10.21.222.62  --server.port 8501
       - name: start local server
         run: |
           python -m http.server 8501
