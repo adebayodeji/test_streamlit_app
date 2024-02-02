@@ -5,6 +5,8 @@ on:
     branches:
       - master
 
+
+
 jobs:
   package-and-deploy:
     runs-on: ubuntu-latest
@@ -20,7 +22,7 @@ jobs:
           SERVER_IP: localhost
           PORT: 8501
         run: |
-          streamlit run --host=localhost --port=8501 https://github.com/adebayodeji/test_streamlit_app/blob/master/CICD_Test1.py
+          streamlit run https://github.com/adebayodeji/test_streamlit_app/blob/master/CICD_Test1.py --host=localhhost --port=8501
       - name: start local server
         run: |
           python -m http.server 8501
